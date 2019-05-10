@@ -16,7 +16,7 @@ export default class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: 'all',
+      selected: 'tab',
       tabs: [],
       cards: []
     };
@@ -31,9 +31,11 @@ export default class Content extends Component {
   }
   
   changeSelected = tab => {
+      console.log('before changing state...'+ this.state.selected);
       this.setState({ 
         selected: tab
        })
+       console.log('after changing state...'+ this.state.selected);
     // this function should take in the tab and update the state with the new tab.
   };
 
@@ -60,11 +62,15 @@ export default class Content extends Component {
   render() {
     return (
       <ContentContainer>
-        
+        {/* 
+          Add 2 props to the Tabs component, 
+          `selectedTab` that includes the currently selected tab
+          and `selectTabHandler` that includes the function to change the selected tab
+        */}
         <Tabs
         tabs={this.state.tabs}
-        selectedTab={this.changeSelected}
-        selectTabHandler={this.filterCards}
+        selectedTab={this.state.selected}
+        selectTabHandler={this.changeSelected}
         />
         <Cards cards={this.filterCards()} />
       </ContentContainer>
