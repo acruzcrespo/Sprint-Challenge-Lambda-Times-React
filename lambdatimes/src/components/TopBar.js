@@ -80,7 +80,6 @@ const RightSpan = styled.span`
 cursor: pointer;
 `;
 
-
 const TopBar = () => {
   return (
     <TopBarStyling>
