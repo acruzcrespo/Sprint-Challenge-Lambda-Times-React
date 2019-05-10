@@ -29,9 +29,8 @@ export default class Content extends Component {
      })
     // Once the component has mounted, get the data and reflect that data on the state.
   }
-
+  
   changeSelected = tab => {
-    changeSelected = tab => {
       this.setState({ 
         selected: tab
        })
@@ -57,7 +56,7 @@ export default class Content extends Component {
       return this.state.cards.filter( card => card.tab === this.state.selected)
     }
   };
-}
+
   render() {
     return (
       <ContentContainer>
@@ -71,4 +70,4 @@ export default class Content extends Component {
       </ContentContainer>
       );
     }
-}
+  }
